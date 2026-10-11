@@ -46,6 +46,20 @@
   --muted: #78716c;
   --line: #e7e5e4;
   --gold: #facc15;
+  --type-page: clamp(32px, 4vw, 40px);
+  --type-section: clamp(26px, 2.6vw, 32px);
+  --type-subheading: clamp(20px, 2vw, 24px);
+  --type-card: 17px;
+  --type-body: 16px;
+  --type-secondary: 14px;
+  --type-meta: 12px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --profile-container: 1200px;
+  --profile-gutter: clamp(16px, 2.5vw, 32px);
 }
 
 * { box-sizing: border-box; }
@@ -82,7 +96,7 @@ a { color: inherit; text-decoration: none; }
 .section { margin: 0 auto; max-width: 1280px; padding: 96px 64px; }
 .sectionTitle { align-items: center; display: flex; gap: 16px; justify-content: center; margin-bottom: 48px; }
 .sectionTitle .icon { height: 32px; width: 32px; }
-h2 { color: var(--maroon); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; line-height: 1.2; margin: 0; text-transform: uppercase; }
+h2 { color: var(--maroon); font-size: var(--type-section); font-weight: 800; line-height: 1.25; margin: 0; text-transform: uppercase; }
 .icon { display: block; height: 24px; object-fit: contain; width: 24px; }
 
 .services { margin-top: -112px; padding-top: 0; position: relative; z-index: 1; }
@@ -91,7 +105,7 @@ h2 { color: var(--maroon); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800
 .floatingTitle p { font-size: 12px; margin: 0; text-align: center; }
 .servicePanel { background: url("/figma/service-pattern.png") center / cover; border: 1px solid var(--ink); border-radius: 16px; display: grid; gap: 24px; grid-template-columns: repeat(6, 1fr); padding: 72px 48px 48px; position: relative; }
 .servicePanel::before { background: rgba(255, 255, 255, .78); content: ""; inset: 0; position: absolute; }
-.serviceCard { align-items: center; background: #fff; border: 1px solid #d6d3d1; border-radius: 12px; display: flex; flex-direction: column; font-size: 14px; font-weight: 600; gap: 16px; grid-column: span 2; justify-content: center; min-height: 152px; padding: 24px 16px; position: relative; text-align: center; transition: transform .2s, box-shadow .2s; }
+.serviceCard { align-items: center; background: #fff; border: 1px solid #d6d3d1; border-radius: 12px; color: inherit; display: flex; flex-direction: column; font-family: inherit; font-size: var(--type-secondary); font-weight: 600; gap: 16px; grid-column: span 2; justify-content: center; min-height: 152px; padding: 24px 16px; position: relative; text-align: center; transition: transform .2s, box-shadow .2s; width: 100%; }
 .serviceCard:hover { box-shadow: 0 12px 24px #4806081a; transform: translateY(-4px); }
 .serviceCard .icon { height: 40px; width: 40px; }
 .serviceCard:nth-last-child(2):nth-child(3n + 1) { grid-column: 2 / span 2; }
@@ -102,7 +116,7 @@ h2 { color: var(--maroon); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800
 .about h2 { margin-bottom: 24px; text-align: left; }
 .about > div > p:not(.eyebrow) { color: #57534e; font-size: 16px; line-height: 1.8; margin: 0 0 32px; }
 .about .eyebrow { color: var(--maroon); margin-bottom: 8px; }
-.primaryButton { background: var(--ink); border-radius: 8px; color: #fff; display: inline-block; font-size: 14px; font-weight: 700; padding: 16px 24px; }
+.primaryButton { background: var(--ink); border: 0; border-radius: 8px; color: #fff; display: inline-block; font-family: inherit; font-size: var(--type-secondary); font-weight: 700; padding: 16px 24px; }
 .primaryButton:hover { background: var(--maroon); }
 
 .awards { padding-top: 0; }
@@ -113,7 +127,7 @@ h2 { color: var(--maroon); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800
 
 .downloads { padding-top: 0; }
 .downloadGrid { display: grid; gap: 24px; grid-template-columns: repeat(2, 1fr); }
-.downloadItem { align-items: center; border: 1px solid var(--maroon); border-radius: 8px; display: flex; font-size: 14px; font-weight: 600; justify-content: space-between; padding: 16px 24px; }
+.downloadItem { align-items: center; background: #fff; border: 1px solid var(--maroon); border-radius: 8px; color: inherit; display: flex; font-family: inherit; font-size: var(--type-secondary); font-weight: 600; justify-content: space-between; padding: 16px 24px; text-align: left; width: 100%; }
 .downloadItem:hover { background: #fff7f7; }
 .downloadItem .icon { height: 20px; width: 20px; }
 
@@ -123,17 +137,20 @@ h2 { color: var(--maroon); font-size: clamp(28px, 3.5vw, 48px); font-weight: 800
 .photo { aspect-ratio: 1.5; border-radius: 8px; overflow: hidden; position: relative; }
 .photo img, .videoThumb > img { object-fit: cover; }
 .newsCard small { background: var(--ink); border-radius: 4px; color: #fff; display: inline-block; font-size: 11px; margin-top: 16px; padding: 4px 8px; }
-.newsCard h3 { font-size: 16px; line-height: 1.5; margin: 16px 0 8px; }
-.newsCard p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 24px; }
-.newsCard a { color: var(--maroon); font-size: 13px; font-weight: 700; }
+.newsCard h3 { font-size: var(--type-card); line-height: 1.5; margin: 16px 0 8px; }
+.newsCard p { color: var(--muted); font-size: var(--type-secondary); line-height: 1.7; margin: 0 0 24px; }
+.newsCard button { background: transparent; border: 0; color: var(--maroon); cursor: default; font-family: inherit; font-size: var(--type-secondary); font-weight: 700; padding: 0; }
+.serviceCard:disabled, .downloadItem:disabled, .primaryButton:disabled, .newsCard button:disabled { cursor: pointer; opacity: 1; }
+.newsCard button:hover { color: var(--ink); text-decoration: underline; }
+.primaryButton:hover { box-shadow: 0 8px 20px #4806082e; transform: translateY(-2px); }
 
 .video { padding-top: 0; }
 .videoLayout { align-items: start; display: grid; gap: 64px; grid-template-columns: 1fr 1fr; }
 .videoThumb { aspect-ratio: 1.6; border-radius: 16px; overflow: hidden; position: relative; }
 .videoThumb span { align-items: center; background: #fff; border-radius: 999px; display: flex; height: 72px; justify-content: center; left: 50%; padding: 20px; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 72px; }
 .videoThumb .icon { height: 32px; width: 32px; }
-.video h3 { font-size: 24px; margin: 0 0 16px; }
-.videoLayout > div:last-child > p:not(.eyebrow) { color: var(--muted); font-size: 16px; line-height: 1.8; margin: 0 0 32px; }
+.video h3 { font-size: var(--type-subheading); margin: 0 0 16px; }
+.videoLayout > div:last-child > p:not(.eyebrow) { color: var(--muted); font-size: var(--type-body); line-height: 1.8; margin: 0 0 32px; }
 .video .eyebrow { color: var(--maroon); margin-bottom: 8px; }
 
 footer { background: var(--ink); color: #e7e5e4; font-size: 13px; padding: 56px max(64px, calc((100vw - 1152px) / 2)) 24px; }
@@ -550,4 +567,311 @@ footer em { color: #d6d3d1; font-size: 12px; font-style: normal; font-weight: 40
 @media (max-width: 800px) {
   .figmaProfile .historyCard h1 { top: 42px; }
   .figmaProfile .historyCard p { top: 106px; }
+}
+
+/* Keep the history copy readable across screen sizes. */
+.figmaProfile .historyHero { height: auto; min-height: 480px; padding: clamp(48px, 7vw, 80px) 24px; }
+.figmaProfile .historyCard { inset: auto; margin: 0 auto; max-width: 960px; padding: 0; position: relative; width: 100%; }
+.figmaProfile .historyCard h1 { font-size: var(--type-page); left: auto; line-height: 1.2; margin: 0 auto 24px; position: static; text-shadow: 0 2px 10px #240304b3; transform: none; width: 100%; }
+.figmaProfile .historyCard p { background: rgba(72, 6, 8, .66); border-radius: 16px; font-size: var(--type-body); height: auto; left: auto; line-height: 1.75; margin: 0 auto; max-width: 800px; padding: clamp(20px, 3vw, 32px); position: static; text-align: left; transform: none; width: 100%; }
+
+.serviceCard, .downloadItem, .primaryButton { transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.serviceCard:focus-visible, .downloadItem:focus-visible, .primaryButton:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.newsCard p { margin-bottom: 16px; }
+
+/* Soften the batik texture behind the service cards. */
+.servicePanel { background: linear-gradient(135deg, #fff8f7 0%, #f5e9e9 100%); border-color: #ead5d7; box-shadow: 0 18px 40px rgba(72, 6, 8, .12), inset 0 1px 0 #fff; }
+.servicePanel::before { background: radial-gradient(ellipse at 12% 8%, rgba(84, 0, 0, .07), transparent 35%), radial-gradient(ellipse at 88% 92%, rgba(84, 0, 0, .06), transparent 32%); border-radius: inherit; pointer-events: none; }
+.serviceCard { background: #fff; border: 1px solid #eadbdd; border-radius: 12px; box-shadow: 0 6px 18px rgba(72, 6, 8, .09); z-index: 1; }
+.serviceCard .icon { background: #f8ebed; border-radius: 50%; box-sizing: content-box; padding: 12px; }
+.serviceCard span { color: var(--ink); line-height: 1.5; }
+@media (max-width: 700px) {
+  .servicePanel { background: linear-gradient(145deg, #fff8f7, #f5e9e9); }
+  .serviceCard .icon { padding: 8px; }
+}
+
+.figmaProfile .healthSection { margin-top: 48px; }
+.figmaProfile .healthSectionHeading { margin-bottom: 28px; }
+.figmaProfile .healthHeading h2, .figmaProfile .demography .matrixTitle { font-size: var(--type-subheading); font-weight: 800; line-height: 1.35; }
+
+/* Profile page layout: shared container widths, readable data, and balanced grids. */
+.figmaProfile .vmSection,
+.figmaProfile .profileBlock,
+.figmaProfile .demographyInner,
+.figmaProfile .healthSection,
+.figmaProfile .footerTop,
+.figmaProfile .footerBottom { max-width: var(--profile-container); }
+
+.figmaProfile .vmSection { padding: 72px 24px 80px; }
+.figmaProfile .vmSection h2 { font-size: var(--type-section); margin-bottom: var(--space-3); }
+.figmaProfile .winePanel { border-radius: 12px; padding: var(--space-4); }
+.figmaProfile .vmSection .quote { font-size: 19px; line-height: 1.7; margin-bottom: var(--space-5); }
+.figmaProfile .missionPanel { font-size: var(--type-body); line-height: 1.7; }
+.figmaProfile .missionPanel ol { padding-left: 28px; }
+.figmaProfile .missionPanel li { padding-left: 8px; }
+
+.figmaProfile .profileBlock { padding: 0 24px 72px; }
+.figmaProfile .ribbonTitle { border: 0; border-radius: 12px; font-size: var(--type-section); line-height: 1.3; margin-bottom: var(--space-4); max-width: 100%; padding: 16px 24px; text-transform: none; }
+.figmaProfile .mapFrame { background: #fcf9f5; border: 1px solid #e7e5e4; border-radius: 12px; height: auto; overflow: hidden; padding: 12px; }
+.figmaProfile .mapFrame img { display: block; height: auto; object-fit: contain; width: 100%; }
+
+.figmaProfile .orgBlock { max-width: var(--profile-container); }
+.figmaProfile .orgCanvas { background: #fcf9f5; border: 1px solid #e7e5e4; border-radius: 12px; height: auto; max-width: 100%; overflow: auto; padding: 20px; }
+.figmaProfile .orgCanvas > img { display: block; height: auto; margin: 0 auto; max-width: 1000px; width: 100%; }
+.figmaProfile .orgCanvas:focus-visible, .figmaProfile .tableWrap:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.figmaProfile .orgScrollHint { display: none; }
+
+.figmaProfile .demography { padding: 0 24px 88px; }
+.figmaProfile .demographyInner { padding: 0; }
+.figmaProfile .demographyInner > h2 { font-size: var(--type-section); line-height: 1.3; }
+.figmaProfile .demography h3 { font-size: var(--type-subheading); line-height: 1.4; margin: var(--space-4) 0 var(--space-3); }
+.figmaProfile .genderCards { gap: var(--space-3); }
+.figmaProfile .genderCards article { align-content: start; border: 1px solid #f0dedd; border-radius: 12px; gap: var(--space-2); padding: 28px; }
+.figmaProfile .genderCards article > p { font-size: 16px; line-height: 1.4; }
+.figmaProfile .genderCards strong { font-size: 44px; }
+.figmaProfile .genderCards small { font-size: 18px; }
+.figmaProfile .genderCards article > div { align-items: center; font-size: 14px; gap: 12px; }
+.figmaProfile .genderCards article:first-child em { width: 49.55%; }
+.figmaProfile .demography .matrixTitle { margin: var(--space-5) 0 var(--space-3); }
+.figmaProfile .tableWrap { border: 1px solid #e7e5e4; border-radius: 12px; box-shadow: none; max-width: 100%; overscroll-behavior-x: contain; }
+.figmaProfile .tableWrap table { min-width: 960px; }
+.figmaProfile .tableWrap th { font-size: 12px; line-height: 1.5; padding: 16px; }
+.figmaProfile .tableWrap td { font-size: 14px; line-height: 1.6; padding: 16px; }
+.figmaProfile .tableWrap td:nth-child(3) { font-size: 15px; }
+
+.figmaProfile .healthSection { margin: 0 auto 80px; padding: 0 24px; width: 100%; }
+.figmaProfile .healthSectionHeading { margin: 0 0 var(--space-2); padding: 0 32px; text-align: left; }
+.figmaProfile .healthSectionHeading h2 { font-size: var(--type-section); line-height: 1.3; text-align: left; }
+.figmaProfile .healthHeading { margin: 0 0 var(--space-3); max-width: none; padding: 0 32px; }
+.figmaProfile .healthHeading h2 { font-size: var(--type-subheading); line-height: 1.4; }
+.figmaProfile .healthHeading .sectionLead { font-size: var(--type-secondary); line-height: 1.65; margin-top: var(--space-1); }
+.figmaProfile .healthInner { background: var(--profile-wine); border-radius: 16px; display: grid; gap: var(--space-4); max-width: none; padding: var(--space-4); }
+.figmaProfile .healthKpis { gap: var(--space-2); grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; }
+.figmaProfile .healthKpis article { border: 1px solid #eee7e4; border-radius: 12px; display: grid; gap: 12px; grid-column: span 2; min-height: 168px; padding: 20px; }
+.figmaProfile .healthKpis article:nth-child(4) { grid-column: 2 / span 2; }
+.figmaProfile .healthKpis article:nth-child(5) { grid-column: 4 / span 2; }
+.figmaProfile .healthKpiLabel { color: #564241; font-size: 12px; line-height: 1.4; }
+.figmaProfile .healthKpiValue b, .figmaProfile .healthKpiValue.gold b { font-size: 32px; }
+.figmaProfile .healthKpiValue small { font-size: 13px; }
+.figmaProfile .healthKpis article > p { font-size: 13px; line-height: 1.55; }
+.figmaProfile .healthCards { gap: var(--space-3); grid-template-columns: 1.2fr 1fr; }
+.figmaProfile .healthCards article { border: 1px solid #eee7e4; border-radius: 12px; padding: 24px; }
+.figmaProfile .healthCards article > header { align-items: flex-start; gap: 12px; margin-bottom: var(--space-2); padding: 16px; }
+.figmaProfile .healthCards h3 { font-size: 17px; line-height: 1.45; }
+.figmaProfile .healthCards article > header p { font-size: 13px; line-height: 1.5; }
+.figmaProfile .healthTag { font-size: 12px; padding: 6px 10px; }
+.figmaProfile .posyanduGrid { gap: 12px; }
+.figmaProfile .posyanduGrid > div { gap: 6px; min-height: 104px; padding: 16px; }
+.figmaProfile .posyanduGrid small { font-size: 11px; line-height: 1.4; }
+.figmaProfile .posyanduGrid strong { font-size: 17px; }
+.figmaProfile .posyanduGrid p { font-size: 13px; line-height: 1.5; }
+.figmaProfile .staffSummary { gap: 8px 12px; margin-top: 16px; padding: 14px; }
+.figmaProfile .staffSummary strong { font-size: 12px; }
+.figmaProfile .staffSummary span { font-size: 11px; }
+.figmaProfile .kbOverview { gap: 16px; padding: 12px 0 16px; }
+.figmaProfile .kbOverview small { font-size: 11px; line-height: 1.4; }
+.figmaProfile .kbOverview strong { font-size: 24px; }
+.figmaProfile .kbProgress { height: 14px; }
+.figmaProfile .kbProgressLabels { flex-wrap: wrap; font-size: 11px; gap: 8px; line-height: 1.4; }
+.figmaProfile .kbMethod { margin-top: 20px; padding: 16px; }
+.figmaProfile .kbMethod strong { font-size: 13px; }
+.figmaProfile .kbMethod p { font-size: 13px; line-height: 1.6; }
+.figmaProfile .kbSource { font-size: 11px; line-height: 1.5; margin-top: 16px; }
+
+.figmaProfile footer { padding: 56px 24px 24px; }
+.figmaProfile .footerTop, .figmaProfile .footerBottom { margin-left: auto; margin-right: auto; width: 100%; }
+
+@media (max-width: 1024px) {
+  .figmaProfile .healthKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figmaProfile .healthKpis article, .figmaProfile .healthKpis article:nth-child(4), .figmaProfile .healthKpis article:nth-child(5) { grid-column: auto; }
+  .figmaProfile .healthKpis article:last-child { grid-column: 1 / -1; }
+  .figmaProfile .healthCards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+  .figmaProfile .topbar { margin-top: 0; }
+  .figmaProfile .historyHero { min-height: 0; padding: 40px 16px; }
+  .figmaProfile .historyCard h1 { font-size: clamp(26px, 7vw, 34px); margin-bottom: 18px; }
+  .figmaProfile .historyCard p { font-size: 14px; line-height: 1.65; max-height: none; overflow: visible; padding: 20px; }
+  .figmaProfile .vmSection { padding: 56px 24px 64px; }
+  .figmaProfile .winePanel { padding: 24px; }
+  .figmaProfile .profileBlock { padding: 0 16px 56px; }
+  .figmaProfile .ribbonTitle { font-size: 24px; margin-bottom: 24px; padding: 14px 18px; }
+  .figmaProfile .mapFrame { padding: 8px; }
+  .figmaProfile .orgCanvas { padding: 12px; }
+  .figmaProfile .orgCanvas > img { margin: 0; max-width: none; min-width: 760px; width: 760px; }
+  .figmaProfile .orgScrollHint { color: #6d625e; display: block; font-size: 12px; margin: 12px 0 0; text-align: center; }
+  .figmaProfile .demography { padding: 0 16px 64px; }
+  .figmaProfile .demographyInner > h2, .figmaProfile .healthSectionHeading h2 { font-size: 25px; }
+  .figmaProfile .genderCards { gap: 16px; }
+  .figmaProfile .genderCards article { padding: 20px; }
+  .figmaProfile .genderCards strong { font-size: 38px; }
+  .figmaProfile .healthSection { margin-bottom: 56px; padding: 0 16px; }
+  .figmaProfile .healthSectionHeading { margin-bottom: 16px; padding: 0 20px; }
+  .figmaProfile .healthHeading { margin-bottom: 20px; padding: 0 20px; }
+  .figmaProfile .healthHeading h2 { font-size: 21px; }
+  .figmaProfile .healthInner { gap: 24px; padding: 20px; }
+  .figmaProfile .healthKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figmaProfile .healthKpis article { min-height: 164px; padding: 16px; }
+  .figmaProfile .healthKpis article:last-child { grid-column: 1 / -1; }
+  .figmaProfile .healthCards article { padding: 16px; }
+  .figmaProfile .healthCards article > header { flex-direction: column; padding: 12px; }
+  .figmaProfile .posyanduGrid { grid-template-columns: 1fr 1fr; }
+  .figmaProfile footer { padding: 48px 16px 24px; }
+  .figmaProfile .demographyInner { padding-left: 0; padding-right: 0; }
+  .figmaProfile .healthSectionHeading,
+  .figmaProfile .healthHeading { padding-left: 16px; padding-right: 16px; }
+  .figmaProfile .footerTop,
+  .figmaProfile .footerBottom { padding-left: 0; padding-right: 0; }
+}
+
+/* Final footer reset: Profil follows the shared Beranda footer. */
+.figmaProfile footer { padding: 56px max(64px, calc((100vw - 1152px) / 2)) 24px; }
+.figmaProfile .footerTop,
+.figmaProfile .footerBottom { max-width: none; padding-left: 0; padding-right: 0; }
+.figmaProfile .footerTop h4,
+.figmaProfile .footerBottom p,
+.figmaProfile .footerTop a:hover { color: var(--gold); }
+
+@media (max-width: 800px) {
+  .figmaProfile footer { padding: 48px 24px 24px; }
+}
+
+/* Final alignment overrides for subsection headings. */
+.figmaProfile .demography h3,
+.figmaProfile .demography .matrixTitle { text-align: left; }
+.figmaProfile .healthHeading,
+.figmaProfile .healthHeading h2 { text-align: left; }
+
+/* Keep these subsection titles aligned with their content grids. */
+.figmaProfile .demography h3,
+.figmaProfile .demography .matrixTitle { text-align: left; }
+.figmaProfile .healthHeading,
+.figmaProfile .healthHeading h2 { text-align: left; }
+
+/* Final profile heading and accent overrides. */
+.figmaProfile .ribbonTitle { text-align: center; }
+.figmaProfile .healthSectionHeading { text-align: center; }
+.figmaProfile .healthSectionHeading h2 { text-align: center; }
+.figmaProfile .healthSectionHeading > p { color: #706361; font-size: var(--type-secondary); line-height: 1.65; margin: 8px auto 0; max-width: 680px; }
+.figmaProfile .healthHeading h2,
+.figmaProfile .healthHeading .sectionLead { text-align: center; }
+.figmaProfile .healthKpiValue.gold b,
+.figmaProfile .kbProgressLabels strong { color: var(--profile-wine); }
+.figmaProfile .missionPanel { min-height: 0; padding: clamp(24px, 3vw, 40px); }
+.figmaProfile .missionPanel ol { line-height: 1.7; }
+.figmaProfile .demography h3 { margin-left: 0; margin-right: 0; text-align: left; width: 100%; }
+.figmaProfile .healthHeading { margin-left: 0; margin-right: 0; text-align: left; width: 100%; }
+.figmaProfile .healthHeading h2 { text-align: left; width: 100%; }
+.figmaProfile .healthCards h3 { font-weight: 800; }
+.figmaProfile .demographyInner > h3,
+.figmaProfile .demographyInner > .matrixTitle { text-align: left; }
+.figmaProfile .healthCards h3 { color: var(--profile-wine); }
+.figmaProfile .healthTag.goldTag { background: #f4e8e9; color: var(--profile-wine); }
+.figmaProfile .kbProgress span { background: var(--profile-wine); }
+.figmaProfile .demography h3,
+.figmaProfile .demography .matrixTitle { text-align: left; }
+.figmaProfile .healthHeading,
+.figmaProfile .healthHeading h2 { text-align: left; }
+
+/* Profile page: consistent centered section headings and calmer card grids. */
+.figmaProfile .profileSectionHeading { margin: 0 auto var(--space-4); max-width: 900px; text-align: center; }
+.figmaProfile .profileSectionHeading h2 { color: var(--maroon); font-size: var(--type-section); font-weight: 800; line-height: 1.3; margin: 0; text-align: center; text-transform: uppercase; }
+.figmaProfile .profileSectionHeading p,
+.figmaProfile .healthSectionHeading > p { color: #706361; font-size: var(--type-secondary); line-height: 1.65; margin: 8px auto 0; max-width: 680px; text-align: center; }
+.figmaProfile .vmSection .profileSectionHeading { margin-bottom: var(--space-3); }
+.figmaProfile .vmSection .quote { margin-bottom: var(--space-5); }
+.figmaProfile .profileBlock .profileSectionHeading { margin-bottom: var(--space-4); }
+.figmaProfile .ribbonTitle { color: var(--maroon); font-size: var(--type-section); height: auto; line-height: 1.3; margin: 0; padding: 0; text-align: center; text-transform: uppercase; white-space: normal; width: 100%; }
+.figmaProfile .demographyInner > .profileSectionHeading { margin-bottom: var(--space-4); }
+.figmaProfile .demography h3 { text-align: left; }
+.figmaProfile .healthSectionHeading { margin-bottom: var(--space-3); padding: 0 24px; text-align: center; }
+.figmaProfile .healthSectionHeading h2 { text-align: center; }
+.figmaProfile .healthSectionHeading > p { color: #706361; }
+.figmaProfile .healthHeading { text-align: left; }
+.figmaProfile .healthHeading h2,
+.figmaProfile .healthHeading .sectionLead { text-align: left; }
+.figmaProfile .healthKpis { gap: 14px; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.figmaProfile .healthKpis article,
+.figmaProfile .healthKpis article:nth-child(4),
+.figmaProfile .healthKpis article:nth-child(5) { grid-column: auto; min-width: 0; }
+.figmaProfile .healthKpis article { align-content: start; min-height: 156px; padding: 18px; }
+.figmaProfile .healthKpiValue.gold b { color: var(--profile-wine); }
+.figmaProfile .healthCards { align-items: stretch; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.figmaProfile .healthCards article { min-width: 0; }
+.figmaProfile .healthCards article > header { align-items: flex-start; }
+.figmaProfile .healthTag.goldTag { background: #f4e8e9; color: var(--profile-wine); }
+.figmaProfile .kbProgress span { background: var(--profile-wine); }
+.figmaProfile .kbProgressLabels strong { color: var(--profile-wine); }
+.figmaProfile .footerTop h4,
+.figmaProfile .footerTop a:hover,
+.figmaProfile .footerBottom p { color: #f2dfe2; }
+
+@media (max-width: 1024px) {
+  .figmaProfile .healthKpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .figmaProfile .healthKpis article:nth-child(4) { grid-column: 1; }
+  .figmaProfile .healthKpis article:nth-child(5) { grid-column: 2; }
+}
+
+@media (max-width: 800px) {
+  .figmaProfile .healthKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figmaProfile .healthKpis article:nth-child(4),
+  .figmaProfile .healthKpis article:nth-child(5) { grid-column: auto; }
+  .figmaProfile .healthCards { grid-template-columns: 1fr; }
+  .figmaProfile .profileSectionHeading { margin-bottom: 24px; }
+}
+
+@media (max-width: 560px) {
+  .figmaProfile .healthKpis { grid-template-columns: 1fr; }
+  .figmaProfile .healthKpis article, .figmaProfile .healthKpis article:last-child { grid-column: auto; min-height: 0; }
+  .figmaProfile .genderCards { grid-template-columns: 1fr; }
+  .figmaProfile .genderCards strong { font-size: 36px; }
+  .figmaProfile .kbOverview { flex-direction: column; }
+  .figmaProfile .kbOverview > div:last-child { text-align: left; }
+  .figmaProfile .posyanduGrid { grid-template-columns: 1fr; }
+  .figmaProfile .staffSummary { align-items: flex-start; flex-direction: column; }
+  .figmaProfile .footerTop { gap: 28px 16px; grid-template-columns: 1fr; }
+  .figmaProfile .footerBrand { grid-column: auto; }
+}
+
+/* Align all profile sections to the same centered content grid. */
+.figmaProfile .vmSection,
+.figmaProfile .profileBlock,
+.figmaProfile .healthSection { width: 100%; }
+.figmaProfile .demography { padding-left: 0; padding-right: 0; }
+.figmaProfile .demographyInner { padding-left: var(--profile-gutter); padding-right: var(--profile-gutter); width: 100%; }
+.figmaProfile .vmSection,
+.figmaProfile .profileBlock { padding-left: var(--profile-gutter); padding-right: var(--profile-gutter); }
+.figmaProfile .healthSection { padding-left: var(--profile-gutter); padding-right: var(--profile-gutter); }
+.figmaProfile .healthSectionHeading { padding-left: 24px; padding-right: 24px; }
+.figmaProfile .healthSection .healthHeading { padding-left: 0; padding-right: 0; }
+
+/* Use the shared Beranda footer spacing and accent colors on Profil too. */
+.figmaProfile footer { padding: 56px max(64px, calc((100vw - 1152px) / 2)) 24px; }
+.figmaProfile .footerTop,
+.figmaProfile .footerBottom { max-width: none; padding-left: 0; padding-right: 0; }
+.figmaProfile .footerTop h4,
+.figmaProfile .footerBottom p { color: var(--gold); }
+.figmaProfile .footerTop a:hover { color: var(--gold); }
+
+@media (max-width: 800px) {
+  .figmaProfile footer { padding: 48px 24px 24px; }
+}
+.figmaProfile .healthInner { padding: 24px; }
+.figmaProfile .ribbonTitle { background: transparent; border: 0; border-radius: 0; color: var(--maroon); font-size: var(--type-section); font-weight: 800; margin: 0 0 var(--space-3); padding: 0; text-align: left; text-transform: uppercase; width: 100%; }
+.figmaProfile .historyHero > img { object-position: center 58%; }
+.figmaProfile .historyShade { background: linear-gradient(180deg, rgba(72, 6, 8, .08), rgba(72, 6, 8, .88)); }
+.figmaProfile .historyCard p { background: rgba(75, 8, 8, .68); border: 1px solid #fff3; }
+.figmaProfile footer { padding: 56px max(64px, calc((100vw - 1152px) / 2)) 24px; }
+.figmaProfile .footerTop,
+.figmaProfile .footerBottom { max-width: none; padding-left: 0; padding-right: 0; }
+
+@media (max-width: 800px) {
+  .figmaProfile .demography { padding-left: var(--profile-gutter); padding-right: var(--profile-gutter); }
+  .figmaProfile .demographyInner { padding-left: 0; padding-right: 0; }
+  .figmaProfile .healthSectionHeading { padding-left: 20px; padding-right: 20px; }
+  .figmaProfile .healthSection .healthHeading { padding-left: 0; padding-right: 0; }
+  .figmaProfile footer { padding: 48px 24px 24px; }
+  .figmaProfile .footerTop,
+  .figmaProfile .footerBottom { padding-left: 0; padding-right: 0; }
 }

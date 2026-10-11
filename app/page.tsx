@@ -48,7 +48,7 @@ export default function Home() {
       <section className="services section">
         <div className="sectionTitle floatingTitle"><h2>Layanan Desa Sroyo</h2></div>
         <div className="servicePanel">
-          {services.map((service) => <a key={service.name} href="#kontak" className="serviceCard"><Icon name={service.icon} /><span>{service.name}</span></a>)}
+          {services.map((service) => <button key={service.name} type="button" className="serviceCard" disabled aria-label={`${service.name} (belum tersedia)`}><Icon name={service.icon} /><span>{service.name}</span></button>)}
         </div>
       </section>
 
@@ -63,22 +63,22 @@ export default function Home() {
 
       <section className="awards section">
         <div className="sectionTitle"><Icon name="trophy" /><h2>Penghargaan</h2></div>
-        <div className="awardGrid">{[1, 2, 3].map((award) => <article key={award} className="award"><Icon name="trophy" /><span>Penghargaan 1234</span></article>)}</div>
+        <div className="awardGrid">{[1, 2, 3].map((award, index) => <article key={award} className="award"><Icon name="trophy" /><span>Penghargaan {index + 1}</span></article>)}</div>
       </section>
 
       <section className="downloads section">
         <div className="sectionTitle"><Icon name="download" /><h2>Profil Desa</h2></div>
-        <div className="downloadGrid">{downloads.map((item) => <a key={item} href="#footer" className="downloadItem"><span>{item}</span><Icon name="download" alt="Unduh" /></a>)}</div>
+        <div className="downloadGrid">{downloads.map((item) => <button key={item} type="button" className="downloadItem" disabled aria-label={`${item} (belum tersedia)`}><span>{item}</span><Icon name="download" alt="" /></button>)}</div>
       </section>
 
       <section className="news section">
         <div className="sectionTitle"><Icon name="news" /><h2>Berita Terkini</h2></div>
-        <div className="newsGrid">{[1, 2, 3].map((article) => <article className="newsCard" key={article}><div className="photo"><Image src="/figma/news-meeting.png" alt="Rapat koordinasi perangkat Desa Sroyo" fill sizes="(max-width: 700px) 100vw, 33vw" /></div><small>Pemerintahan</small><h3>PemDes Rapat Koordinasi Pembangunan Desa</h3><p>Desa Sroyo melaksanakan musyawarah rencana kerja pembangunan desa untuk kesejahteraan warga.</p><a href="#footer">Lihat Detail</a></article>)}</div>
+        <div className="newsGrid">{[1, 2, 3].map((article) => <article className="newsCard" key={article}><div className="photo"><Image src="/figma/news-meeting.png" alt="Rapat koordinasi perangkat Desa Sroyo" fill sizes="(max-width: 700px) 100vw, 33vw" /></div><small>Pemerintahan</small><h3>PemDes Rapat Koordinasi Pembangunan Desa</h3><p>Desa Sroyo melaksanakan musyawarah rencana kerja pembangunan desa untuk kesejahteraan warga.</p><button type="button" disabled aria-label="Lihat Detail (belum tersedia)">Lihat Detail</button></article>)}</div>
       </section>
 
       <section className="video section">
         <div className="sectionTitle"><Icon name="video" /><h2>Video Informasi</h2></div>
-        <div className="videoLayout"><div className="videoThumb"><Image src="/figma/video-event.png" alt="Pembukaan KopDes dan pameran UMKM" fill sizes="(max-width: 700px) 100vw, 50vw" /><span><Icon name="play" alt="Putar video" /></span></div><div><h3>Pembukaan KopDes & Pameran UMKM Desa</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quo eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a className="primaryButton" href="#footer">Lihat Video</a></div></div>
+        <div className="videoLayout"><div className="videoThumb"><Image src="/figma/video-event.png" alt="Pembukaan KopDes dan pameran UMKM" fill sizes="(max-width: 700px) 100vw, 50vw" /><span><Icon name="play" alt="Putar video" /></span></div><div><h3>Pembukaan KopDes & Pameran UMKM Desa</h3><p>Kenali lebih dekat Desa Sroyo melalui video informasi yang menampilkan lingkungan desa, aktivitas masyarakat, serta berbagai potensi yang dimiliki. Video ini menjadi sarana untuk memperkenalkan kehidupan dan perkembangan Desa Sroyo kepada masyarakat luas.</p><button type="button" className="primaryButton" disabled>Lihat Video</button></div></div>
       </section>
 
       <SiteFooter />

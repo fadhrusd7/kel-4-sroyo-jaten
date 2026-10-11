@@ -31,7 +31,7 @@ export function SiteFooter() {
           <p>Portal informasi resmi Pemerintah Desa Sroyo untuk pelayanan dan keterbukaan informasi warga.</p>
           <div className="contactDetail"><span>Jl. Raya Solo - Sragen KM 7.5, Desa Sroyo</span><span>Senin - Jumat | 08.00 - 15.00 WIB</span><span>+62 812-3456-7890</span></div>
         </div>
-        <div><h4>Navigasi Utama</h4><Link href="/">Beranda</Link><Link href="/profil">Profil Wilayah</Link><Link href="/profil#layanan">Layanan Surat Online</Link><Link href="/#beranda">Transparansi APBDes</Link></div>
+        <div><h4>Navigasi Utama</h4><Link href="/">Beranda</Link><Link href="/profil">Profil Wilayah</Link></div>
         <div id="kontak"><h4>Hubungi Kami</h4><a href="mailto:desa-sroyo@karanganyarkab.go.id">desa-sroyo@karanganyarkab.go.id</a><a href="tel:+6281234567890">+62 812-3456-7890</a><a href="#kontak">Pos Pengaduan Warga</a></div>
       </div>
       <div className="footerBottom">
