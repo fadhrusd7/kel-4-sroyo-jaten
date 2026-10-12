@@ -725,6 +725,9 @@ footer em { color: #d6d3d1; font-size: 12px; font-style: normal; font-weight: 40
   .figmaProfile .footerBottom { padding-left: 0; padding-right: 0; }
 }
 
+/* Keep the Sroyo history title readable over the photo. */
+.figmaProfile .historyCard h1 { color: #fff; text-shadow: 0 2px 5px rgba(0, 0, 0, .75), 0 0 14px rgba(0, 0, 0, .35); }
+
 /* Final footer reset: Profil follows the shared Beranda footer. */
 .figmaProfile footer { padding: 56px max(64px, calc((100vw - 1152px) / 2)) 24px; }
 .figmaProfile .footerTop,
